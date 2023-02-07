@@ -1,6 +1,6 @@
 FROM ubuntu:20.04
 
-RUN apt update && apt install -y curl make clang pkg-config libssl-dev build-essential git jq ncdu bsdmainutils htop && \
+RUN apt update && DEBIAN_FRONTEND=noninteractive TZ=Etc/UTC apt install -y curl make clang pkg-config libssl-dev build-essential git jq ncdu bsdmainutils htop && \
     curl -s https://api.nodes.guru/logo.sh | bash
 
 ENV DEFUND_NODENAME "MonPham"
@@ -13,7 +13,7 @@ RUN wget -O go1.19.1.linux-amd64.tar.gz https://golang.org/dl/go1.19.1.linux-amd
     rm -rf /usr/local/go && tar -C /usr/local -xzf go1.19.1.linux-amd64.tar.gz && rm go1.19.1.linux-amd64.tar.gz && \
     git clone https://github.com/defund-labs/defund && \
     cd defund && \
-    git checkout v0.2.2 && \
+    # git checkout v0.2.2 && \
     make build && \
     mv ./build/defundd /usr/local/bin/
 
