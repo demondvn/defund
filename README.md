@@ -13,4 +13,4 @@ build on https://nodes.guru/defund/setup-guide/en
       sed -i "s/pruning-interval *=.*/pruning-interval = \"10\"/g" config/app.toml
  
  ##RUN
-      docker run -it -d -v defund/:/root/.defund -p 26656:26656 --name defund defund
+            docker run -it -d -v defund/:/root/.defund -p 26656:26656 --name defund defund
